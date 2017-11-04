@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<title>Maples</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Maples</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#Location" class="w3-bar-item w3-button">Parking near me</a>
+      <a href="#Login" class="w3-bar-item w3-button">Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://fthmb.tqn.com/E3UMy2YvX7Oc1F-6ncaB96QkOG8=/960x0/filters:no_upscale()/Japanese-Maple-GettyImages-543165315-586d2ae85f9b586e02c5a9e4.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge">Le Catering</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+   
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Welcome to Maples</h1><br>
+
+        <head>
+        <style> 
+        input[type=text] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+        }
+        </style>
+        </head>
+        <body>
+
+         
+
+        <form>
+          <input type="text" name="search" placeholder="Search..">
+        </form>
+
+        </body>
+
+    
+    </div>
+  </div>
+  
+  <hr>
+
+  <!---->
+
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Directions to City Station West Lot</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script> 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHnFUEv7W9-J0ccTzL1rMysD5adE7fjK8&callback=initMap">
+    </script>
+  </body>
+
+
+ 
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <p>Maples, Software Design and Documentation</p>
+</footer>
+
+</body>
+</html>
