@@ -9,13 +9,13 @@ using CarLove.Models;
 namespace CarLove
 {
  
-
+/*
     [Route("api/[controller]")]
     public class LotController : Controller
     {
         // GET: api/values
         const string database_name = @"./DATA.db";
-        static db = null;
+        static  db = null;
 
         [HttpGet]
         public JsonResult GetLots()
@@ -76,5 +76,5 @@ namespace CarLove
         public void Delete(int id)
         {
         }
-    }
+    }*/
 }
