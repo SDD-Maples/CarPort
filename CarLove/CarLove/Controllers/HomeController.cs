@@ -23,6 +23,11 @@ namespace CarLove.Controllers
 
         public IActionResult CityStat()
         {
+            var rand = new Random();
+            int Capacity = rand.Next(100);
+            ViewData["Capacity"] =  Capacity;
+            ViewData["Current"] = rand.Next(Capacity);
+            //Console.WriteLine(ViewData["Lot"]);
             return View();
         }
 

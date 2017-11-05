@@ -9,7 +9,7 @@ namespace CarLove.Models
 
     public class MapleContext : DbContext
     {
-        public DbSet<Lot> Blogs { get; set; }
+        public DbSet<Lot> Lots { get; set; }
         //public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -8,29 +8,20 @@ using CarLove.Models;
 
 namespace CarLove
 {
- 
-/*
+    
     [Route("api/[controller]")]
     public class LotController : Controller
     {
         // GET: api/values
-        const string database_name = @"./DATA.db";
-        static  db = null;
+        //const string database_name = @"./DATA.db";
+        //static  db = null;
 
         [HttpGet]
         public JsonResult GetLots()
         {
-            try
+            using( var db = new MapleContext())
             {
-                if (db == null)
-                    db = new SQLiteAsyncConnection(database_name);
-
-                return Json(db.Table<Lot>().ToListAsync().Result);
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
+                return Json(db.Lots.ToList());
             }
         }
 
@@ -38,25 +29,15 @@ namespace CarLove
         [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
-            try
-            {
-                if (db == null)
-                    db = new SQLiteAsyncConnection(database_name);
-
-                return Json(db.Table<Lot>().Where(x => x.ID == id).FirstOrDefaultAsync().Result);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
-            }
+            return null;
         }
 
-        public JsonResult GetWest()
+        public Lot GetWest()
         {
             var rand = new Random();
             var Ret = new Lot { ID = 0, CurrentCount = rand.Next(10), Maxsize = 10, Lotname = "West", Location = "Here" };
-            return Json(Ret);
+            //return Json(Ret);
+            return Ret;
         }
 
         // POST api/values
@@ -76,5 +57,5 @@ namespace CarLove
         public void Delete(int id)
         {
         }
-    }*/
+    }
 }
