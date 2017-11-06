@@ -10,6 +10,7 @@ namespace CarLove.Models
     public class MapleContext : DbContext
     {
         public DbSet<Lot> Lots { get; set; }
+        public DbSet<User> Users { get;set; }
         //public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -20,6 +21,7 @@ namespace CarLove.Models
 
     public class User
     {
+        public int ID {get;set;}
         public string Username {get;set;}
         public string Password {get;set;}
 

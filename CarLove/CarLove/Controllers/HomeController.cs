@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using CarLove.Models;
 
 namespace CarLove.Controllers
 {
@@ -24,7 +25,14 @@ namespace CarLove.Controllers
         public IActionResult CityStat()
         {
             var rand = new Random();
+            int Current;
             int Capacity = rand.Next(100);
+            using( var db = new MapleContext())
+            {
+                Capacity = db.Lots.FirstOrDefault().Maxsize;
+                Current = db.Lots.FirstOrDefault().CurrentCount;
+            }
+
             ViewData["Capacity"] =  Capacity;
             ViewData["Current"] = rand.Next(Capacity);
             //Console.WriteLine(ViewData["Lot"]);

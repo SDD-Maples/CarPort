@@ -13,7 +13,15 @@ namespace CarLove
     {
         public void Database()
         {
-
+            using( var db = new CarLove.Models.MapleContext()){
+                if( db.Lots.Count() != 0) return;
+                var meh = new CarLove.Models.Lot();
+                meh.CurrentCount = 34;
+                meh.Maxsize = 87;
+                meh.ID = 0;
+                db.Lots.Add(meh);
+                db.SaveChanges();
+            }
         }
 
 
@@ -60,6 +68,7 @@ namespace CarLove
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            Database();
         }
     }
 }

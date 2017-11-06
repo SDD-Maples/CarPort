@@ -8,7 +8,6 @@ using CarLove.Models;
 
 namespace CarLove
 {
-    
     [Route("api/[controller]")]
     public class LotController : Controller
     {
