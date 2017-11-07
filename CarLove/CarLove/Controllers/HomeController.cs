@@ -34,7 +34,7 @@ namespace CarLove.Controllers
             }
 
             ViewData["Capacity"] =  Capacity;
-            ViewData["Current"] = rand.Next(Capacity);
+            ViewData["Current"] = Current;
             //Console.WriteLine(ViewData["Lot"]);
             return View();
         }
