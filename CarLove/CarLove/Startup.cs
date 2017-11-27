@@ -15,6 +15,8 @@ namespace CarLove
         {
             using( var db = new CarLove.Models.MapleContext()){
                 if( db.Lots.Count() != 0) return;
+                var josh = new CarLove.Models.User(){Username= "admin", Password = "password"};
+                var tommy = new CarLove.Models.User(){Username= "john", Password = "1234"};
                 var meh = new CarLove.Models.Lot(){CurrentCount = 8, Maxsize = 8, Location = "Troy", Lotname= "City Station North", Src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d732.7186600056425!2d-73.688382511855!3d42.72754399869134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDQzJzM5LjIiTiA3M8KwNDEnMTYuMiJX!5e0!3m2!1sen!2sus!4v1511746488605"};
                 db.Lots.Add(meh);
                 meh = new CarLove.Models.Lot(){CurrentCount = 34, Maxsize = 100, Location = "Troy", Lotname= "North Campus", Src= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1197.1235806046566!2d-73.68031572578926!3d42.73152023360161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0fa1ac7a7cfd%3A0x381283c262003ef4!2sNorth+Lot%2C+Troy%2C+NY+12180!5e0!3m2!1sen!2sus!4v1511745472248"};
@@ -33,6 +35,12 @@ namespace CarLove
                 db.Lots.Add(meh);
                 meh = new CarLove.Models.Lot(){CurrentCount = 19, Maxsize = 27, Location = "Scotia", Lotname= "Turf Tavern", Src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d731.5649811074655!2d-73.96167451183874!3d42.82512299869099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDQ5JzMwLjQiTiA3M8KwNTcnNDAuMSJX!5e0!3m2!1sen!2sus!4v1511746578271"};
                 db.Lots.Add(meh);
+                
+                
+                
+
+                db.Users.Add(josh);
+                db.Users.Add(tommy);
                 db.SaveChanges();
             }
         }

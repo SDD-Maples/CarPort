@@ -7,6 +7,9 @@
     </style>
 </head>
 <body>
+    <form method="post" action="@Url.Action("LocSearch", new{Loc="!!", UserID=ViewData["UserId"]})">
+        <input type="submit" value="View All" formaction="@Url.Action("LocSearch", new{Loc="!!", UserID=ViewData["UserId"]})"/>
+    </form>
     <table>
     <tr>
         <th>
@@ -19,6 +22,7 @@
             Current Capactiy / Max Capacity 
         </th>
         <th>Map</th>
+        <th>Favorite</th>
     </tr>
     @model List<CarLove.Models.Lot>
     @foreach (var item in Model) {
@@ -34,6 +38,9 @@
             </td>
             <td>
                 @Html.ActionLink("Directions", "ViewLot", new{ID=item.ID})
+            </td>
+            <td>
+                @Html.ActionLink("Faviorte", "AddFavorite", new{LotID=item.ID, UserID=ViewData["UserId"]})
             </td>
         </tr>
     }

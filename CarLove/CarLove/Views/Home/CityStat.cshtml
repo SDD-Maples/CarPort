@@ -9,9 +9,16 @@
 <body>
     <br><br><br>
     <h1 class="w3-center">City Station West Lot</h1><br>
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2930.864896353129!2d-73.68961618475899!3d42.727750219794466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x89de0f08f7b38dcf%3A0x6798a74821b2d4d6!2sCollege+Suites+at+City+Station%2C+1521+6th+Ave%2C+Troy%2C+NY+12180!3m2!1d42.7277463!2d-73.6874275!5e0!3m2!1sen!2sus!4v1509837207654" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-    <p>Current Fill: @ViewData["Current"]</p>
-    <p>Capacity: @ViewData["Capacity"]</p>
-    <img src="@Url.Content("~/images/aa.JPG")" />
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2930.864896353129!2d-73.68961618475899!3d42.727750219794466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x89de0f08f7b38dcf%3A0x6798a74821b2d4d6!2sCollege+Suites+at+City+Station%2C+1521+6th+Ave%2C+Troy%2C+NY+12180!3m2!1d42.7277463!2d-73.6874275!5e0!3m2!1sen!2sus!4v1509837207654" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <p>Current Fill: @ViewData["Current"]</p>
+                <p>Capacity: @ViewData["Capacity"]</p>
+            </div>
+            <div class="col-6">
+                <img style="-webkit-user-select: none;" src="http://129.161.250.228:1234/stream.mpjpeg" width="572" height="317">
+            </div>
+        </div>
+    </div>
 </body>

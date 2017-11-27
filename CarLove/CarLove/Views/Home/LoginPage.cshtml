@@ -1,0 +1,10 @@
+<body>
+    <p>@ViewData["Message"]</p>
+    <form method="post" action="@Url.Action("LoginResult","Home")">
+        Username:
+        <input type="text" name="Username" placeholder="Username"/>
+        Password:
+        <input type="text" name="Password" placeholder="password"/>
+        <input type="submit" formaction="@Url.Action("LoginResult","Home")"/>
+    </form>
+</body>

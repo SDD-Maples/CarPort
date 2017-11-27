@@ -18,6 +18,19 @@ namespace CarLove.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
 
+            modelBuilder.Entity("CarLove.Models.FavourLots", b =>
+                {
+                    b.Property<int>("LotID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("LotID", "UserID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("FavourLots");
+                });
+
             modelBuilder.Entity("CarLove.Models.Lot", b =>
                 {
                     b.Property<int>("ID")
@@ -33,11 +46,7 @@ namespace CarLove.Migrations
 
                     b.Property<string>("Src");
 
-                    b.Property<int?>("UserID");
-
                     b.HasKey("ID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("Lots");
                 });
@@ -56,11 +65,17 @@ namespace CarLove.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CarLove.Models.Lot", b =>
+            modelBuilder.Entity("CarLove.Models.FavourLots", b =>
                 {
-                    b.HasOne("CarLove.Models.User")
+                    b.HasOne("CarLove.Models.Lot", "Lot")
+                        .WithMany("Users")
+                        .HasForeignKey("LotID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CarLove.Models.User", "User")
                         .WithMany("Favorites")
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -10,7 +10,7 @@ using System;
 namespace CarLove.Migrations
 {
     [DbContext(typeof(MapleContext))]
-    [Migration("20171106224703_INIT")]
+    [Migration("20171127203706_INIT")]
     partial class INIT
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,6 +18,19 @@ namespace CarLove.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
+
+            modelBuilder.Entity("CarLove.Models.FavourLots", b =>
+                {
+                    b.Property<int>("LotID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("LotID", "UserID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("FavourLots");
+                });
 
             modelBuilder.Entity("CarLove.Models.Lot", b =>
                 {
@@ -32,11 +45,9 @@ namespace CarLove.Migrations
 
                     b.Property<int>("Maxsize");
 
-                    b.Property<int?>("UserID");
+                    b.Property<string>("Src");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("Lots");
                 });
@@ -55,11 +66,17 @@ namespace CarLove.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CarLove.Models.Lot", b =>
+            modelBuilder.Entity("CarLove.Models.FavourLots", b =>
                 {
-                    b.HasOne("CarLove.Models.User")
+                    b.HasOne("CarLove.Models.Lot", "Lot")
+                        .WithMany("Users")
+                        .HasForeignKey("LotID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CarLove.Models.User", "User")
                         .WithMany("Favorites")
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
