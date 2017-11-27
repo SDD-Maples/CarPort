@@ -1,0 +1,41 @@
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+    <tr>
+        <th>
+            LotName
+        </th>
+        <th>
+            Lot Location
+        </th>
+        <th>
+            Current Capactiy / Max Capacity 
+        </th>
+        <th>Map</th>
+    </tr>
+    @model List<CarLove.Models.Lot>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Lotname
+            </td>
+            <td>
+                @item.Location
+            </td>
+            <td>
+                @item.CurrentCount / @item.Maxsize
+            </td>
+            <td>
+                @Html.ActionLink("Directions", "ViewLot", new{ID=item.ID})
+            </td>
+        </tr>
+    }
+    </table>
+</body>

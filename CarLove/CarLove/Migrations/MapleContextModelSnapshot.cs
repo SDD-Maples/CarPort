@@ -31,6 +31,8 @@ namespace CarLove.Migrations
 
                     b.Property<int>("Maxsize");
 
+                    b.Property<string>("Src");
+
                     b.Property<int?>("UserID");
 
                     b.HasKey("ID");

@@ -1,0 +1,18 @@
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    @model CarLove.Models.Lot
+    <br><br><br>
+    <h1 class="w3-center">@Model.Lotname</h1><br>
+
+    <iframe src= @Model.Src width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <p>Current Fill: @Model.CurrentCount</p>
+    <p>Capacity: @Model.Maxsize</p>
+
+</body>

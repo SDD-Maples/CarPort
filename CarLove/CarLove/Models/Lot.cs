@@ -34,5 +34,7 @@ namespace CarLove.Models
         public string Location{get; set;}
         public int Maxsize{get; set;}
         public int CurrentCount{get; set;}
+
+        public string Src{get;set;}
     }
 }

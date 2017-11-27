@@ -50,5 +50,29 @@ namespace CarLove.Controllers
         {
             return View();
         }
+    
+        public IActionResult LocSearch(string Loc)
+        {   
+            ViewData["Search"] = Loc;
+            
+
+            using( var db = new MapleContext())
+            {
+                return View(db.Lots.Where(l=>l.Location.Contains(Loc)).ToList());
+            }
+            return View("Index");
+        }
+
+        public IActionResult ViewLot(int ID)
+        {
+            Lot ret;
+            using( var db = new MapleContext())
+            {
+                ret = db.Lots.FirstOrDefault(l=>l.ID==ID);
+            }
+
+            return View(ret);
+        }
+
     }
 }
