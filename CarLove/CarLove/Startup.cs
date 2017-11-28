@@ -13,6 +13,7 @@ namespace CarLove
     {
         public void Database()
         {
+            //This is where we seed the database
             using( var db = new CarLove.Models.MapleContext()){
                 if( db.Lots.Count() != 0) return;
                 var josh = new CarLove.Models.User(){Username= "admin", Password = "password"};

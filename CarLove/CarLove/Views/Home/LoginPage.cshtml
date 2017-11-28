@@ -1,5 +1,10 @@
 <body>
     <p>@ViewData["Message"]</p>
+
+    <!-- The submission must link into the form action in addtion
+    to the form action having a link to the form action
+    Something about having 2 inputs, this saves a ton of effort
+    Generates JSON requet, get HTML in response-->
     <form method="post" action="@Url.Action("LoginResult","Home")">
         Username:
         <input type="text" name="Username" placeholder="Username"/>

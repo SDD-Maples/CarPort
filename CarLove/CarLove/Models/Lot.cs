@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CarLove.Models
 {
 
+    //This the acess to get 
     public class MapleContext : DbContext
     {
         public DbSet<Lot> Lots { get; set; }
@@ -14,12 +15,14 @@ namespace CarLove.Models
         //public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        {   //Specify the file for the database
             optionsBuilder.UseSqlite("Data Source=Data.db");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //The code bellow sets up the Many to Many relationship between
+            // User and Lots
             builder.Entity<FavourLots>()
                 .HasKey(t => new{t.LotID, t.UserID});
             
@@ -35,6 +38,7 @@ namespace CarLove.Models
         }
     }
 
+    //Users who can log in to view faviortes
     public class User
     {
         public User()
@@ -43,10 +47,13 @@ namespace CarLove.Models
         }
         public int ID {get;set;}
         public string Username {get;set;}
+        //in an Ideal world the Password would be encrypted
+        //However for our beta test, we aren't too concerned with security yet
         public string Password {get;set;}
 
         public virtual ICollection<FavourLots> Favorites {get; set;}
     }
+    //Parking Lot
     public class Lot
     {
         public Lot()
@@ -60,9 +67,12 @@ namespace CarLove.Models
         public int CurrentCount{get; set;}
 
         public virtual ICollection<FavourLots> Users {get;set;}
+        //Src is the URL of the embedded Google Maps 
         public string Src{get;set;}
     }
 
+    //FavourLots is the relationship table between users and lots
+    //Allows mutlipul users to favorite mutlipul lots
     public class FavourLots
     {
         public int LotID {get;set;}
