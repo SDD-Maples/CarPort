@@ -64,6 +64,7 @@ namespace CarLove.Controllers
             return View("Index");
         }
 
+        //Lot Specific pages
         public IActionResult ViewLot(int ID)
         {
             Lot ret;
@@ -75,6 +76,8 @@ namespace CarLove.Controllers
             return View(ret);
         }
 
+        //Allows when in the Lot listing, this allows the user
+        // to add a favorite, using LOTID and UserID
         public IActionResult AddFavorite(int LotID, int UserID)
         {
             if( UserID == -1) return RedirectToAction("ViewLot",new{ID=LotID});
@@ -87,12 +90,18 @@ namespace CarLove.Controllers
             return RedirectToAction("ViewLot",new{ID=LotID});
         }
 
+
+        //Returns view for loggin in.
+        //View Data is setup to return error messages to user
         public IActionResult LoginPage()
         {
             ViewData["Message"] = "-1";
             return View();
         }
         
+        //Check Username/Password input
+        //Return User to Login if no match exists
+        //Otherwise, show list of favorites
         public IActionResult LoginResult(string Username, string Password)
         {
             using( var db = new MapleContext())
