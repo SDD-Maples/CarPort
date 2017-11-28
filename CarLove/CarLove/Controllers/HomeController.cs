@@ -10,6 +10,7 @@ namespace CarLove.Controllers
 {
     public class HomeController : Controller
     {
+        //Home Page
         public IActionResult Index()
         {
             return View();
@@ -22,6 +23,7 @@ namespace CarLove.Controllers
             return View();
         }
 
+        //Test Page for city station
         public IActionResult CityStat()
         {
             var rand = new Random();
@@ -50,7 +52,8 @@ namespace CarLove.Controllers
         {
             return View();
         }
-    
+
+        //Displays generates list of Lots for the View to Display
         public IActionResult LocSearch(string Loc, int? UserID  )
         {   
             ViewData["Search"] = Loc;
@@ -58,7 +61,7 @@ namespace CarLove.Controllers
 
             using( var db = new MapleContext())
             {
-                if( Loc == "!!") return View(db.Lots.ToList());
+                if( Loc == "!!" || Loc == "") return View(db.Lots.ToList());
                 return View(db.Lots.Where(l=>l.Location.Contains(Loc)).ToList());
             }
             return View("Index");
