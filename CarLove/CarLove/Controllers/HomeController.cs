@@ -89,7 +89,7 @@ namespace CarLove.Controllers
 
         public IActionResult LoginPage()
         {
-            ViewData["Message"] = "-1";
+            ViewData["Message"] = "";
             return View();
         }
         
@@ -113,7 +113,7 @@ namespace CarLove.Controllers
                     .Where( z=>z.ID == use.ID).FirstOrDefault();
 
                 var retList = use.Favorites.Select(e => e.Lot).ToList();
-
+                ViewData["UserId"] = use.ID;
                 return View("LocSearch", retList);
             }
 
