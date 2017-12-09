@@ -64,7 +64,6 @@ namespace CarLove.Controllers
                 if( Loc == "!!" || Loc == "") return View(db.Lots.ToList());
                 return View(db.Lots.Where(l=>l.Location.Contains(Loc)).ToList());
             }
-            return View("Index");
         }
 
         //Lot Specific pages
